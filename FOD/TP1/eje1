@@ -1,0 +1,24 @@
+program Emanuel;
+type
+archint= file of integer;
+
+procedure cargar(var a: archint);
+var
+n: string; i: integer;
+begin
+  readln(n);
+  assign(a, n);
+  rewrite(a);
+  i:= random(30000)+1;
+  while (i <> 30000) do begin
+    write(a,i);
+    i:= random(30000)+1;
+  end;
+  close(a)
+end;
+var
+arch: archint;
+begin
+cargar(arch);
+
+end.
