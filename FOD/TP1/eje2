@@ -1,0 +1,26 @@
+program Emanuel;
+  procedure informar(var c: integer; var p: real);
+  var
+    carga: file of integer; n:string; i: integer; max: integer;
+  begin
+    max:=0;
+    readln(n);
+    assign(carga,n);
+    reset(carga);
+    while not eof(carga) do begin
+      read(carga, i);
+      max:= max+1;
+      if (i < 1500) then
+        c:= c+1;
+      writeln(i);
+    end;
+    p:= (c*100)/max;
+    close(carga)
+  end;
+var
+  prom: real; cant: integer;
+begin
+  cant:=0;
+  informar(cant, prom);
+  writeln('cantidad menores: ',cant, ' promedio: ' , prom);
+end.
